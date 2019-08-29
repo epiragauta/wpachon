@@ -24,18 +24,19 @@ def count_word_app():
 	maxNumTries = 2
 
 	numTry=0
-	while pwdInput != password and usrInput != user:
+	
+	while (pwdInput != password) or (usrInput != user):
 		print(msgInvalidUserPassword % (numTry+1))
 		if numTry==2:
 			print(msgUnauthorized)
-			break;
-		pwdInput=str(raw_input("Clave: "))
+			return;
+		
 		numTry+=1
+		pwdInput = raw_input("Clave: ")
 			
 	if numTry < maxNumTries:
 		print(msgWellcome + usrInput)
-	else:
-		return
+	
 				
 	word = raw_input(msgIntroduceWord)
 
